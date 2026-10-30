@@ -1,0 +1,99 @@
+{
+  "shop": {
+    "id": "orvalho-atelier",
+    "name": "Orvalho Atelier",
+    "tagline": "Consultative specialty tea shop (fictional catalog)"
+  },
+  "items": [
+    {
+      "id": "tea-sencha-50",
+      "name": "Sencha Uji 50g",
+      "price_cents": 3200,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["green", "caffeine", "japan", "daily"],
+      "blurb": "Grassy steamed green tea. Morning cup for people who already drink green tea."
+    },
+    {
+      "id": "tea-darjeeling-50",
+      "name": "Darjeeling First Flush 50g",
+      "price_cents": 4100,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["black", "caffeine", "india", "floral"],
+      "blurb": "Light black tea with muscatel notes. Works as a thoughtful gift."
+    },
+    {
+      "id": "tea-tieguanyin-40",
+      "name": "Tieguan Yin 40g",
+      "price_cents": 4800,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["oolong", "caffeine", "china", "ceremonial"],
+      "blurb": "Rolled oolong. For someone who wants to slow down and brew in infusions."
+    },
+    {
+      "id": "tea-houjicha-50",
+      "name": "Houjicha 50g",
+      "price_cents": 2900,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["green", "low-caffeine", "japan", "evening"],
+      "blurb": "Roasted green tea, low caffeine. Evening cup without herbal territory."
+    },
+    {
+      "id": "tea-chamomile-30",
+      "name": "Camomila Floral 30g",
+      "price_cents": 1800,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["herbal", "caffeine-free", "evening", "gift"],
+      "blurb": "Caffeine-free chamomile blend. Comfort cup, not a medical product."
+    },
+    {
+      "id": "tea-rooibos-40",
+      "name": "Rooibos Citrus 40g",
+      "price_cents": 2200,
+      "currency": "BRL",
+      "category": "tea",
+      "tags": ["herbal", "caffeine-free", "citrus", "daily"],
+      "blurb": "Red bush with citrus peel. Caffeine-free daily driver."
+    },
+    {
+      "id": "gear-kyusu",
+      "name": "Kyusu 250ml",
+      "price_cents": 8900,
+      "currency": "BRL",
+      "category": "gear",
+      "tags": ["teapot", "japan", "ceremonial"],
+      "blurb": "Side-handle teapot. Pairs with sencha or houjicha."
+    },
+    {
+      "id": "gear-kettle",
+      "name": "Chaleira de precisao 0.8L",
+      "price_cents": 15900,
+      "currency": "BRL",
+      "category": "gear",
+      "tags": ["kettle", "beginner", "temperature"],
+      "blurb": "Gooseneck kettle with temperature hold. The usual upgrade after a tasting kit."
+    },
+    {
+      "id": "set-tasting-3",
+      "name": "Kit degustacao (3 amostras)",
+      "price_cents": 3900,
+      "currency": "BRL",
+      "category": "set",
+      "tags": ["beginner", "gift", "sampler"],
+      "blurb": "Three 10g samples. Default recommendation when taste is still open."
+    },
+    {
+      "id": "set-gift-starter",
+      "name": "Caixa presente iniciante",
+      "price_cents": 12900,
+      "currency": "BRL",
+      "category": "set",
+      "tags": ["gift", "beginner", "bundle"],
+      "blurb": "Sampler plus a small teapot. One-box gift when the recipient is new to tea."
+    }
+  ]
+}

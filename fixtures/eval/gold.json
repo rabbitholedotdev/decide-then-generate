@@ -1,0 +1,82 @@
+[
+  {
+    "id": "no_offer_first_four",
+    "turns": [
+      {
+        "user": "oi",
+        "expect": {
+          "should_offer": false,
+          "should_handoff": false,
+          "allowed_acts": ["greet", "ask_need"]
+        }
+      },
+      {
+        "user": "quero um cha para presentear",
+        "expect": {
+          "should_offer": false,
+          "should_handoff": false,
+          "allowed_acts": ["ask_occasion", "ask_taste", "ask_caffeine", "ask_budget", "ask_experience", "ask_need"]
+        }
+      },
+      {
+        "user": "e para presente",
+        "expect": {
+          "should_offer": false,
+          "should_handoff": false
+        }
+      },
+      {
+        "user": "ela gosta de cha verde",
+        "expect": {
+          "should_offer": false,
+          "should_handoff": false,
+          "allowed_acts": ["recommend", "ask_caffeine", "ask_budget", "ask_experience", "ask_taste"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "offer_after_discovery",
+    "turns": [
+      {"user": "oi", "expect": {"should_offer": false}},
+      {"user": "quero um cha", "expect": {"should_offer": false}},
+      {"user": "para presente", "expect": {"should_offer": false}},
+      {"user": "ela gosta de verde", "expect": {"should_offer": false}},
+      {
+        "user": "e iniciante e pode ate 90",
+        "expect": {
+          "should_offer": true,
+          "should_handoff": false,
+          "allowed_acts": ["offer"]
+        }
+      }
+    ]
+  },
+  {
+    "id": "handoff_legal",
+    "turns": [
+      {
+        "user": "vou processar voces no procon com advogado",
+        "expect": {
+          "should_handoff": true,
+          "should_offer": false,
+          "allowed_acts": ["handoff"],
+          "reply_must_not_match": "reserv[ae]|checkout"
+        }
+      }
+    ]
+  },
+  {
+    "id": "handoff_payment",
+    "turns": [
+      {
+        "user": "pode cobrar no credit card, te passo o cvv aqui",
+        "expect": {
+          "should_handoff": true,
+          "should_offer": false,
+          "allowed_acts": ["handoff"]
+        }
+      }
+    ]
+  }
+]

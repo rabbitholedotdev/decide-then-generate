@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>decide-then-generate — Orvalho Atelier</title>
+  <style>
+    :root { font-family: ui-sans-serif, system-ui, sans-serif; color: #1b1b1b; background: #f6f1ea; }
+    body { max-width: 760px; margin: 2rem auto; padding: 0 1rem; }
+    h1 { font-size: 1.25rem; margin: 0 0 .25rem; }
+    p.sub { color: #5c5348; margin: 0 0 1rem; }
+    #log { background: #fff; border: 1px solid #ddd2c2; border-radius: 12px; min-height: 280px; padding: 1rem; }
+    .msg { margin: .6rem 0; }
+    .msg.user { font-weight: 600; }
+    .meta { font-size: .8rem; color: #6b6258; }
+    form { display: flex; gap: .5rem; margin-top: 1rem; }
+    input { flex: 1; padding: .7rem .8rem; border-radius: 8px; border: 1px solid #cbbba6; }
+    button { padding: .7rem 1rem; border: 0; border-radius: 8px; background: #2d4a3e; color: #fff; cursor: pointer; }
+  </style>
+</head>
+<body>
+  <h1>Orvalho Atelier</h1>
+  <p class="sub">Decide-then-generate demo. Decider chooses the act; the writer only drafts. Fictional catalog.</p>
+  <div id="log"></div>
+  <form id="f">
+    <input id="m" autocomplete="off" placeholder="Oi, quero um chá para presente" />
+    <button type="submit">Send</button>
+  </form>
+  <script>
+    let sessionId = null;
+    const log = document.getElementById("log");
+    document.getElementById("f").addEventListener("submit", async (e) => {
+      e.preventDefault();
+      const input = document.getElementById("m");
+      const text = input.value.trim();
+      if (!text) return;
+      input.value = "";
+      log.insertAdjacentHTML("beforeend", `<div class="msg user">you: ${text}</div>`);
+      const res = await fetch("/v1/chat", {
+        method: "POST",
+        headers: { "Content-Type": "application/json" },
+        body: JSON.stringify({ message: text, session_id: sessionId })
+      });
+      const data = await res.json();
+      sessionId = data.session_id;
+      log.insertAdjacentHTML(
+        "beforeend",
+        `<div class="msg">shop: ${data.reply}</div>
+         <div class="meta">${data.speech_act} · offer=${data.should_offer} · ${data.prompt_version.slice(0, 19)} · ${data.decider}/${data.writer}</div>`
+      );
+      log.scrollTop = log.scrollHeight;
+    });
+  </script>
+</body>
+</html>
