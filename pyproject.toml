@@ -1,0 +1,44 @@
+[project]
+name = "decide-then-generate"
+version = "0.1.0"
+description = "Decide-then-generate conversational assistant: a structured Decider chooses, the LLM only drafts."
+readme = "README.md"
+requires-python = ">=3.11"
+dependencies = [
+  "fastapi>=0.115",
+  "uvicorn[standard]>=0.32",
+  "pydantic>=2.9",
+  "pydantic-settings>=2.6",
+  "PyYAML>=6.0",
+  "openai>=1.55",
+  "httpx>=0.27",
+]
+
+[project.optional-dependencies]
+dev = [
+  "pytest>=8.3",
+  "pytest-asyncio>=0.24",
+]
+qdrant = [
+  "qdrant-client>=1.12",
+]
+
+[project.scripts]
+dtg-eval = "app.eval.runner:main"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+include = ["app*"]
+
+[tool.pytest.ini_options]
+asyncio_mode = "auto"
+asyncio_default_fixture_loop_scope = "function"
+testpaths = ["tests"]
+pythonpath = ["."]
+
+[tool.ruff]
+line-length = 100
+target-version = "py311"
